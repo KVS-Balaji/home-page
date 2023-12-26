@@ -1,0 +1,69 @@
+.hiddennav {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.shownav {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.navbarcontainer {
+  margin: 1dvh;
+  z-index: 10;
+  padding: 0;
+  transition: all 1s;
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 1);
+  max-width: 70%;
+  height: 50px;
+  font-weight: 600;
+}
+
+.complogo {
+  max-height: 100%;
+  max-width: 25%;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.links ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.navlink {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  font-size: 2.5dvh;
+  margin-right: 2dvh; /* Adjust margin as needed to add space between links */
+  transition: color 0.2s ease-in;
+}
+
+.navlink::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffbc00;
+  transition: width 0.3s ease-in-out;
+}
+
+.navlink:hover::before {
+  width: 100%;
+}
+
+.navlink:hover {
+  color: #ffbc00;
+}

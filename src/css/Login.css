@@ -1,0 +1,174 @@
+.loginpage {
+	display: flex;
+	justify-content: center;
+}
+
+.loginpage .navbar {
+	position: absolute;
+	background: transparent;
+	width: 100%;
+	left: 12.5%;
+}
+
+.content {
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	animation:main-bg 150s linear infinite;
+  background-image: url('../assets/img/pattern_bw_bg.png');
+	background-color: #333;
+}
+
+@keyframes main-bg {
+	from {
+		background-position: 0% 50%;
+	}
+	to {
+		background-position: 100% 50%;
+	}
+}
+
+form {
+  background-image: url('../assets/img/pattern_bw_bg.png');
+  background-color: #ffbc00;
+  height: 50%;
+  width: 20vw;
+  transform: translate(55%, 50%);
+  border-radius: 10px;
+  transition: 0.3s ease-in;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+	color: black;
+}
+
+form:hover {
+  animation: form-bg 15s linear infinite;
+  box-shadow: 10px 10px 15px #000;
+}
+
+@keyframes form-bg {
+  to {
+    background-position: -100% 0%;
+  }
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+  margin-bottom: 30px;
+	height: 15%;
+	font-size: 20px;
+  background-color: #000;
+	color: #ffbc00;
+}
+
+.email-group, .password-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+label {
+	font-size: 20px;
+}
+
+#email, #pwd {
+	height: 30px;
+	border: 1px solid rgba(255, 187, 0, 0.5);
+	border-radius: 5px;
+	padding-left: 3px;
+	margin-left: 5px;
+	width: 100%;
+	transition: 0.2s ease-in;
+}
+
+#email:hover, #pwd:hover {
+	border: 1px solid black;
+}
+
+.inputfield {
+  display: flex;
+  align-items: center;
+	font-size: 27px;
+}
+
+.inputfield input {
+	font-size: 18px;
+}
+
+.submit-group {
+	height: 4dvh;
+	margin-bottom: 7dvh;
+}
+
+.submitbtn, .forgot {
+	display: flex;
+	justify-content: center;
+}
+
+.submitbtn button {
+	width: 70%;
+	border-radius: 5px;
+	background: transparent;
+	border: 1px solid black;
+	color: black;
+	font-size: 2dvh;
+	transition: 0.2s ease-in;
+}
+
+.submitbtn button:hover {
+	background-color: black;
+	color: #ffbc00;
+}
+
+.forgot {
+	align-items: center;	
+}
+
+.forgot a, .create-acc-group a, .create-acc-group p {
+	text-decoration: none;
+	color: black;
+	font-size: 2dvh;
+}
+
+.forgot a:hover, .create-acc-group a:hover {
+	text-decoration: underline;
+}
+
+.create-acc-group div {
+	display: flex;
+	justify-content: center;
+}
+
+.filler {
+	height: 100vh;
+	width: 20vw;
+}
+
+.imagecontainer {
+	transform: skewX(-5deg) translateX(4%)
+}
+
+#bg-image {
+	height: 100vh;
+	width: 60vw;
+	border: none;
+	background-image: url('../assets/img/loginpic.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	box-shadow: -2px 0 20px #222;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.6;
+}
