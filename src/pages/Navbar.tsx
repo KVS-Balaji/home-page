@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import "bootstrap/dist/css/bootstrap.css";
-import { useEffect } from "react";
 import logo from "../assets/img/logo.png";
 import "../css/Navbar.css";
 
@@ -9,28 +8,9 @@ function Navbar() {
     window.open("/", "_self");
   };
 
-  useEffect(() => {
-    const navbarobserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("shownav");
-        } else {
-          entry.target.classList.remove("shownav");
-        }
-      });
-    });
-
-    const hiddenNav = document.querySelectorAll(".hiddennav");
-    hiddenNav.forEach((el) => navbarobserver.observe(el));
-
-    return () => {
-      hiddenNav.forEach((el) => navbarobserver.unobserve(el));
-    };
-  }, []);
-
   return (
-    <div className="container-fluid row navbarcontainer hiddennav">
-      <div className="col-md-5 imagediv">
+    <div className="container-fluid row navbarcontainer">
+      <div className="imagediv">
         <img
           src={logo}
           alt="main-logo"
@@ -39,7 +19,7 @@ function Navbar() {
           onClick={logoClick}
         />
       </div>
-      <div className="col-md-7 links">
+      <div className="links">
         <ul>
           <CustomLink className="navlink" href="/">
             Home

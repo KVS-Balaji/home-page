@@ -3,7 +3,6 @@ import { useState } from "react";
 import { EnvelopeFill, KeyFill } from "react-bootstrap-icons";
 import test from "../assets/img/pattern_bw_bg.png";
 import "../css/Login.css";
-import Navbar from "./Navbar";
 
 function Login() {
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
@@ -29,9 +28,6 @@ function Login() {
 
   return (
     <div className="loginpage">
-      <div className="navbar">
-        <Navbar />
-      </div>
       <div className="content" onMouseMove={(e) => mouseMovement(e)}>
         <form className="formcontent">
           <header className="header">

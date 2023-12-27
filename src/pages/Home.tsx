@@ -1,20 +1,23 @@
 import "bootstrap/dist/css/bootstrap.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { ArrowUpCircleFill, CaretDownFill } from "react-bootstrap-icons";
 import misologo from "../assets/img/alt_logo.png";
+import certifications from "../assets/img/cetifications.png";
 import logo1 from "../assets/img/company1.png";
 import logo2 from "../assets/img/company2.png";
 import logo3 from "../assets/img/company3.png";
 import logo4 from "../assets/img/company4.png";
 import copyright from "../assets/img/copyright.png";
-import social1 from "../assets/img/social-fb.png";
-import social4 from "../assets/img/social-ig.png";
-import social2 from "../assets/img/social-li.png";
-import social3 from "../assets/img/social-tw.png";
-import social5 from "../assets/img/social-yt.png";
+import social1 from "../assets/img/social1-fb.png";
+import social4 from "../assets/img/social1-ig.png";
+import social2 from "../assets/img/social1-li.png";
+import social3 from "../assets/img/social1-x.png";
+import social5 from "../assets/img/social1-yt.png";
 import "../css/Home.css";
-import Navbar from "./Navbar";
 
 function Home() {
+  const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     const observer2 = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -29,94 +32,75 @@ function Home() {
     const hiddenPtags = document.querySelectorAll(".subhidden");
     hiddenPtags.forEach((el) => observer2.observe(el));
 
-    const cleanup2 = () => {
+    return () => {
       hiddenPtags.forEach((el) => observer2.unobserve(el));
     };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      setIsVisible(scrollTop > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      cleanup2();
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const scrollToTop = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
 
   return (
     <div className="container-fluid homecontainer">
       <div className="homeslide1">
-        <div className="navbar">
-          <Navbar />
-        </div>
-        <div className="container-fluid carousel-container">
-          {/* <Carousel
-            slide={true}
-            fade={true}
-            controls={false}
-            indicators={false}
-            interval={5000}
-            pause={false}
+        <div className="content">
+          <p className="heading">
+            INNOVATION
+            <br />
+            <span style={{ color: "white" }}>AND</span>
+            <br />
+            TECHNOLOGY
+          </p>
+          <a
+            href="https://www.google.com"
+            target="_blank"
+            className="learnmorebtn"
           >
-            <Carousel.Item className="carousel">
-              <img src={dummy1} alt="dummy1" className="image w-100" />
-              <p className="heading">INNOVATION&nbsp;AND&nbsp;TECHNOLOGY</p>
-              <p className="subheading col-md-7">
-                Engineering&nbsp;breakthroughs&nbsp;for&nbsp;a&nbsp;better&nbsp;tomorrow.
-              </p>
-            </Carousel.Item>
-            <Carousel.Item className="carousel">
-              <img src={dummy2} alt="dummy2" className="image w-100" />
-              <p className="heading">INNOVATION&nbsp;AND&nbsp;TECHNOLOGY</p>
-              <p className="subheading col-md-7">
-                Engineering&nbsp;breakthroughs&nbsp;for&nbsp;a&nbsp;better&nbsp;tomorrow.
-              </p>
-            </Carousel.Item>
-            <Carousel.Item className="carousel">
-              <img src={dummy3} alt="dummy3" className="image w-100" />
-              <p className="heading">INNOVATION&nbsp;AND&nbsp;TECHNOLOGY</p>
-              <p className="subheading col-md-7">
-                Engineering&nbsp;breakthroughs&nbsp;for&nbsp;a&nbsp;better&nbsp;tomorrow.
-              </p>
-            </Carousel.Item>
-            <Carousel.Item className="carousel">
-              <img src={dummy4} alt="dummy4" className="image w-100" />
-              <p className="heading">INNOVATION&nbsp;AND&nbsp;TECHNOLOGY</p>
-              <p className="subheading col-md-7">
-                Engineering&nbsp;breakthroughs&nbsp;for&nbsp;a&nbsp;better&nbsp;tomorrow.
-              </p>
-            </Carousel.Item>
-          </Carousel> */}
-          <div className="content">
-            <p className="heading">
-              INNOVATION
-              <br />
-              <span style={{ color: "white" }}>AND</span>
-              <br />
-              TECHNOLOGY
-            </p>
-            <a
-              href="https://www.google.com"
-              target="_blank"
-              className="learnmorebtn"
-            >
-              LEARN MORE
-            </a>
+            LEARN MORE
+          </a>
+          <div className="arrow">
+            <CaretDownFill size={30} />
           </div>
         </div>
       </div>
-      <div className="container-fluid homeslide2">
-        <p className="slide2text">
-          DESIGN
-          <br />
-          <span style={{ color: "white" }}>AND</span>
-          <br />
-          DEVELOPMENT
-        </p>
-        <a
-          href="https://www.google.com"
-          target="_blank"
-          className="learnmorebtn"
-        >
-          LEARN MORE
-        </a>
+      <div className="homeslide2">
+        <div className="content">
+          <p className="heading">
+            DESIGN
+            <br />
+            <span style={{ color: "white" }}>AND</span>
+            <br />
+            DEVELOPMENT
+          </p>
+          <a
+            href="https://www.google.com"
+            target="_blank"
+            className="learnmorebtn"
+          >
+            LEARN MORE
+          </a>
+          <div className="arrow">
+            <CaretDownFill size={30} />
+          </div>
+        </div>
       </div>
-      <div className="container-fluid homeslide3 position-relative">
+      <div className="homeslide3">
         <div className="content">
           <p className="heading">
             ON
@@ -132,9 +116,12 @@ function Home() {
           >
             LEARN MORE
           </a>
+          <div className="arrow">
+            <CaretDownFill size={30} />
+          </div>
         </div>
       </div>
-      <div className="container-fluid homeslide4 position-relative">
+      <div className="homeslide4">
         <div className="content">
           <p className="heading">
             ON
@@ -150,21 +137,35 @@ function Home() {
           >
             LEARN MORE
           </a>
+          <div className="arrow">
+            <CaretDownFill size={30} />
+          </div>
         </div>
       </div>
       <div className="homeslide5">
-        <div className="row">
+        <div className="col-md-6">
           <p className="heading">
             OUR
             <br />
             <span style={{ color: "white" }}>CUSTOMERS</span>
           </p>
+          <a
+            href="https://www.google.com"
+            target="_blank"
+            className="learnmorebtn"
+          >
+            LEARN MORE
+          </a>
         </div>
-        <div className="logos subhidden row">
-          <img src={logo1} alt="company-logo 1" className="col-md-3 logo1" />
-          <img src={logo2} alt="company-logo 2" className="col-md-3 logo2" />
-          <img src={logo3} alt="company-logo 3" className="col-md-3 logo3" />
-          <img src={logo4} alt="company-logo 4" className="col-md-3 logo4" />
+        <div className="logos col-md-6">
+          <div className="row logorow subhidden">
+            <img src={logo1} alt="company-logo 1" className="logo1" />
+            <img src={logo2} alt="company-logo 2" className="logo2" />
+          </div>
+          <div className="row logorow subhidden">
+            <img src={logo3} alt="company-logo 3" className="logo3" />
+            <img src={logo4} alt="company-logo 4" className="logo4" />
+          </div>
         </div>
       </div>
       <div className="container-fluid homeslide6">
@@ -178,7 +179,6 @@ function Home() {
               />
             </div>
             <div className="row textcontent">
-              <p className="heading">MANUFACTURING&nbsp;TRANSFORMED</p>
               <p className="subheading">
                 Misochain offers software-driven
                 <br />
@@ -194,17 +194,6 @@ function Home() {
             </div>
             <div className="row socialsimages">
               <a
-                href="https://www.facebook.com/Misochain/"
-                target="_blank"
-                className="col-md-2"
-              >
-                <img
-                  src={social1}
-                  alt="social1"
-                  className="social1 img-fluid"
-                />
-              </a>
-              <a
                 href="https://www.linkedin.com/company/82587192/admin/feed/posts/"
                 target="_blank"
                 className="col-md-2"
@@ -212,7 +201,7 @@ function Home() {
                 <img
                   src={social2}
                   alt="social2"
-                  className="social2 img-fluid"
+                  className="social1 img-fluid"
                 />
               </a>
               <a
@@ -223,6 +212,17 @@ function Home() {
                 <img
                   src={social3}
                   alt="social3"
+                  className="social2 img-fluid"
+                />
+              </a>
+              <a
+                href="https://www.facebook.com/Misochain/"
+                target="_blank"
+                className="col-md-2"
+              >
+                <img
+                  src={social1}
+                  alt="social1"
                   className="social3 img-fluid"
                 />
               </a>
@@ -364,14 +364,25 @@ function Home() {
                 </a>
               </p>
             </div>
+            <div className="row col-md-12 certifications">
+              <img src={certifications} alt="certification images" />
+            </div>
           </div>
         </div>
         <div className="row copyrightinfo">
+          <p className="headtag">MANUFACTURING TRANSFORMED</p>
           <p className="copyrighttext">
+            Misochain&nbsp;
             <img src={copyright} alt="copyright symbol" className="copyright" />
-            2023-24 Misochain Technologies Pvt Ltd
+            &nbsp;2023
           </p>
         </div>
+      </div>
+      <div
+        className={`startofpage ${isVisible ? "visible" : "hidden"}`}
+        onClick={scrollToTop}
+      >
+        <ArrowUpCircleFill size={40} />
       </div>
     </div>
   );

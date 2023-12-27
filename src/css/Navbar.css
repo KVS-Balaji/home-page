@@ -1,55 +1,39 @@
-.hiddennav {
-  opacity: 0;
-  transform: translateY(-100%);
-}
-
-.shownav {
-  opacity: 1;
-  transform: translateY(0%);
-}
-
 .navbarcontainer {
-  margin: 1dvh;
-  z-index: 10;
-  padding: 0;
-  transition: all 1s;
-  border-radius: 100px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(255, 255, 255, 1);
-  max-width: 70%;
-  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-weight: 600;
 }
 
-.complogo {
-  max-height: 100%;
-  max-width: 25%;
+.navbarcontainer .imagediv {
+  padding: 0;
+  max-width: 10%;
+  margin-left: 20px;
 }
 
-.links {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+.navbarcontainer .links {
+  padding: 0;
+  max-width: max-content;
+  text-transform: uppercase;
 }
 
-.links ul {
+.navbarcontainer .links ul {
   display: flex;
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
 
-.navlink {
+.navbarcontainer .navlink {
   position: relative;
   text-decoration: none;
   color: black;
   font-size: 2.5dvh;
-  margin-right: 2dvh; /* Adjust margin as needed to add space between links */
   transition: color 0.2s ease-in;
+  margin: 0 10px;
 }
 
-.navlink::before {
+.navbarcontainer .navlink::before {
   content: "";
   position: absolute;
   width: 0;
@@ -60,10 +44,10 @@
   transition: width 0.3s ease-in-out;
 }
 
-.navlink:hover::before {
+.navbarcontainer .navlink:hover::before {
   width: 100%;
 }
 
-.navlink:hover {
+.navbarcontainer .navlink:hover {
   color: #ffbc00;
 }

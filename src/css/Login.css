@@ -3,13 +3,6 @@
 	justify-content: center;
 }
 
-.loginpage .navbar {
-	position: absolute;
-	background: transparent;
-	width: 100%;
-	left: 12.5%;
-}
-
 .content {
 	display: flex;
 	height: 100vh;
