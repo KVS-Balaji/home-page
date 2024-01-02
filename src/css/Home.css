@@ -116,6 +116,12 @@
   opacity: 1;
 }
 
+.content {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
 /* SLIDE 1 */
 .homeslide1 {
   display: flex;
@@ -219,6 +225,9 @@
   background-color: #000;
   align-items: center;
   background-image: url("../assets/img/hs5bg.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 
 .homeslide5 .heading {
