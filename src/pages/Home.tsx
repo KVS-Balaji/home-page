@@ -17,6 +17,11 @@ import "../css/Home.css";
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [isHeadingHovered, setIsHeadingHovered] = useState(false);
+  const [isHeadingSpanHovered, setIsHeadingSpanHovered] = useState(false);
+  const [isRArrHovered, setIsRArrHovered] = useState(false);
+  const [isBtnHovered, setIsBtnHovered] = useState(false);
 
   useEffect(() => {
     const observer2 = new IntersectionObserver((entries) => {
@@ -55,6 +60,46 @@ function Home() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   };
+
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      setCursorPosition({ x: event.clientX, y: event.clientY });
+
+      const hoveredElement = event.target as HTMLElement;
+
+      const isHeading = hoveredElement.matches(".heading");
+      const isHeadingSpan = hoveredElement.matches(".heading span");
+      const isArr = hoveredElement.matches(".visible");
+      const isLmBtn = hoveredElement.matches(".learnmorebtn");
+
+      if (isHeading) {
+        setIsHeadingHovered(true);
+      } else if (!isHeading) {
+        setIsHeadingHovered(false);
+      }
+      if (isHeadingSpan) {
+        setIsHeadingSpanHovered(true);
+      } else if (!isHeadingSpan) {
+        setIsHeadingSpanHovered(false);
+      }
+      if (isLmBtn) {
+        setIsBtnHovered(true);
+      } else if (!isLmBtn) {
+        setIsBtnHovered(false);
+      }
+      if (isArr) {
+        setIsRArrHovered(true);
+      } else if (!isArr) {
+        setIsRArrHovered(false);
+      }
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   return (
     <div className="container-fluid homecontainer">
@@ -384,6 +429,14 @@ function Home() {
       >
         <ArrowUpCircleFill size={40} />
       </div>
+      <div
+        className={`cursor-shadow 
+                    ${isHeadingHovered ? "yellow-bg" : ""}
+                    ${isHeadingSpanHovered ? "white-bg" : ""}
+                    ${isBtnHovered ? "btnblack-bg" : ""}
+                    ${isRArrHovered ? "arrblack-bg" : ""}`}
+        style={{ left: cursorPosition.x, top: cursorPosition.y }}
+      ></div>
     </div>
   );
 }

@@ -75,7 +75,7 @@
   padding: 0.7rem;
 }
 
-.arrow {  
+.arrow {
   position: absolute;
   left: 50%;
   animation: scrolldown 3s infinite;
@@ -108,8 +108,9 @@
   bottom: 20px;
   right: 20px;
   cursor: pointer;
-  opacity: 0;
+  color: rgba(255, 255, 255, 1);
   transition: opacity 0.3s ease-in-out;
+  opacity: 0;
 }
 
 .startofpage.visible {
@@ -121,6 +122,38 @@
   background-size: cover;
   background-position: center;
 }
+
+.cursor-shadow {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(255, 188, 0, 0.5);
+  pointer-events: none; 
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.cursor-shadow.yellow-bg {
+  background-color: rgba(255, 188, 0, 0.5);
+}
+
+.cursor-shadow.white-bg {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.cursor-shadow.btnblack-bg {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cursor-shadow.arrblack-bg {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.heading {
+  cursor: default;
+}
+
 
 /* SLIDE 1 */
 .homeslide1 {
